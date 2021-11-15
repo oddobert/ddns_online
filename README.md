@@ -1,4 +1,4 @@
-# Welcome to DDNS_ALL 👋
+# Welcome to DDNS_ONLINE 👋
 ![Version](https://img.shields.io/badge/version-1-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
@@ -12,7 +12,7 @@ This script checks your current IP address by using the Amazon service checkip.a
 
 do a git clone
 ```bash
-git clone git@github.com:oddobert/ddns_all.git
+git clone git@github.com:oddobert/ddns_online.git
 ```
 
 Go into the folder that was created

@@ -211,7 +211,7 @@ if __name__ == "__main__":
     configs = configparser.ConfigParser()
     configs.read("config.ini")
     config_parser = [dict(configs.items(s)) for s in configs.sections()]
-    print(config_parser)
+    logging.info(config_parser)
     with concurrent.futures.ThreadPoolExecutor(len(config_parser)) as executor:
         fs = executor.map(run_one_ddns, config_parser)
         # x = threading.Thread(target=run_one_ddns,args=(configs[configs.sections()],range(len(configs.sections()))))

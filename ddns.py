@@ -99,7 +99,7 @@ class auto_ddns:
         try:
             result = requests.get("https://checkip.amazonaws.com")
             if result.status_code == 200:
-                print(f"got ip")
+                logging.info(f"got ip {result.text.strip()}")
                 return result.text.strip()
             else:
                 print("No access to outside world")
@@ -173,9 +173,10 @@ class auto_ddns:
         return True
 
     def set_cloud_dns(self):
+        logging.info(f"Setting cloud")
         try:
             logger.info(f"self.new_dns_record {self.new_dns_record}")
-            dns_record = self.cf.zones.dns_records.post(
+            dns_record = self.cf.zones.dns_records.put(
                 self.zone_id, self.dns_id, data=self.new_dns_record
             )  # ,
             print(dns_record)

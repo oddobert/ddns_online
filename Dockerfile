@@ -13,5 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Commented out so that you can seyt pp a cron job instead.
-#CMD [ "python", "./ddns.py" ]
+CMD [ "python", "./ddns.py" ]

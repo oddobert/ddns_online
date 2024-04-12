@@ -3,7 +3,7 @@
 # Dockerfile to run the ddns.py script
 #**************************************
 
-FROM python:3.10-alpine
+FROM python:3.10-bullseye
 
 WORKDIR /usr/src/app
 RUN apk update

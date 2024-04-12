@@ -10,7 +10,5 @@ RUN apk update
 RUN apk add nano
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
-
 CMD [ "python", "./ddns.py" ]

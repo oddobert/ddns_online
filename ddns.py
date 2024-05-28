@@ -201,11 +201,14 @@ def run_one_ddns(config):
     ddns = auto_ddns(config)
 
     while True:
-        if ddns.main():
-            sleep(300)  # 15 minutes
-        else:
-            # I guess something went wrong, let's give the script a bit more time.
-            sleep(600)  # 30 minutes
+        try:
+            if ddns.main():
+                sleep(300)  # 5 minutes
+            else:
+                sleep(600)  # 10 minutes
+        except Exception as e:
+            logger.error(f"Exception in run_one_ddns: {e}")
+            sleep(600)  # 10 minutes
 
 
 if __name__ == "__main__":

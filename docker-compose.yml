@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  ddns:
+    build: .
+    volumes:
+      - /path/on/host:/usr/src/app/data
+    restart: always

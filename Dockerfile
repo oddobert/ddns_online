@@ -3,15 +3,23 @@
 # Dockerfile to run the ddns.py script
 #**************************************
 
-FROM python:3.10-alpine
+# Use Python 3.10 on Debian Bullseye as the base image
+FROM python:3.10-bullseye
 
+# Set the working directory inside the container
 WORKDIR /usr/src/app
-RUN apk update
-RUN apk add nano
+
+# Update package list and install nano
+RUN apt-get update && apt-get install -y nano
+
+# Copy the requirements file into the container
 COPY requirements.txt ./
+
+# Install Python dependencies from the requirements file
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the rest of your application's code into the container
 COPY . .
 
-# Commented out so that you can seyt pp a cron job instead.
-#CMD [ "python", "./ddns.py" ]
+# Command to run when the container starts
+CMD ["python", "./ddns.py"]
